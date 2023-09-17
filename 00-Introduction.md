@@ -2,10 +2,10 @@
 
 Profesor: Chanin Nantasenamat [(Data Professor)](https://www.youtube.com/dataprofessor)
 
-Aplicaciones que se construirán:
+Applications to build:
 
-1. [Simple Stock Price](/01-SimpleStockPrice.md)
-2. [Simple Bioinformatics DNA](/02-SimpleBioinformaticsDNA.md)
+1. Simple Stock Price
+2. Simple Bioinformatics DNA
 3. EDA Basketball
 4. EDA Football data
 5. EDA S&SP500 Stock Price
