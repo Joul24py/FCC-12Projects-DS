@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import altair as alt
 from PIL import Image
+import random
 
 image = Image.open('dna.jpg')
 
@@ -15,7 +16,23 @@ This app counts the nucleotide composition of query DNA
 
 st.header('Enter DNA sequence')
 
-sequence = st.text_area('Sequence input', '', height = 250)
+st.write('Or let the PC make a random sequence. Choose the length of the sequence:')
+
+sequenceLenght = st.slider('Sequence length', 0, 1000)
+
+randomSequence = ''
+for i in range(sequenceLenght):
+    n = random.randint(1, 4)
+    if n == 1:
+        randomSequence = randomSequence + 'A'
+    if n == 2:
+        randomSequence = randomSequence + 'T'
+    if n == 3:
+        randomSequence = randomSequence + 'G'
+    if n == 4:
+        randomSequence = randomSequence + 'C'
+
+sequence = st.text_area('Sequence input', randomSequence, height = 250)
 
 st.header('Output:')
 
