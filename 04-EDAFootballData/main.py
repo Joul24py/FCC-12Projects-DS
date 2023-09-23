@@ -45,16 +45,16 @@ st.write('Data Dimension: ' + str(df_selected_team.shape[0]) + ' rows and ' + st
 st.dataframe(df_selected_team)
 
 def fileDownload(df):
-    csv = df.to_csv(index=False)
+    csv = df.to_csv(index = False)
     b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
     href = f'<a href="data:file/csv;base64,{b64}" download="playerstats.csv">Download CSV File</a>'
     return href
 
-st.markdown(fileDownload(df_selected_team), unsafe_allow_html=True)
+st.markdown(fileDownload(df_selected_team), unsafe_allow_html = True)
 
 if st.button('Intercorrelation heatmap'):
     st.header('Intercorrelation matrix heatmap')
-    df_selected_team.to_csv('output.csv',index=False)
+    df_selected_team.to_csv('output.csv',index = False)
     df = pd.read_csv('output.csv')
     df = df.drop(['Player', 'Pos', 'Tm'], axis = 1)
 
@@ -63,5 +63,5 @@ if st.button('Intercorrelation heatmap'):
     mask[np.triu_indices_from(mask)] = True
     with sns.axes_style("white"):
         f, ax = plt.subplots(figsize=(7, 5))
-        ax = sns.heatmap(corr, mask=mask, vmax=1, square=True, cmap = 'RdYlGn')
+        ax = sns.heatmap(corr, mask = mask, vmax = 1, square = True, cmap = 'RdYlGn')
     st.pyplot(f)
